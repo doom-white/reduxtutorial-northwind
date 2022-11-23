@@ -1,9 +1,12 @@
 import React from "react";
+import Navi from "./components/navi/Navi";
+import Dashboard from "./components/root/Dashboard";
 
 const App = () => {
   return (
-    <div>
-      <div>App</div>
+    <div className="container">
+      <Navi />
+      <Dashboard />
     </div>
   );
 };
