@@ -5,16 +5,26 @@ import {
   changeCategory,
   getCategories,
 } from "../../redux/actions/categoryActions";
+import { getProducts } from "../../redux/actions/productAction";
 
 class CategoryList extends Component {
   componentDidMount() {
     this.props.actions.getCategories();
   }
 
+  selectedCategory = (cat) => {
+    this.props.actions.changeCategory(cat);
+    this.props.actions.getProducts(cat.id);
+  };
+
   render() {
     return (
       <div>
-        <h3>Categories</h3>
+        <h3>
+          <span className="badge bg-primary">
+            Categories ({this.props.categories.length})
+          </span>
+        </h3>
         <ul className="list-group">
           {this.props.categories.map((cat) => (
             <li
@@ -22,7 +32,7 @@ class CategoryList extends Component {
                 cat.id === this.props.currentCategory.id ? "active" : null
               }`}
               key={cat.id}
-              onClick={() => this.props.actions.changeCategory(cat)}
+              onClick={() => this.selectedCategory(cat)}
             >
               {cat.categoryName}
             </li>
@@ -44,6 +54,7 @@ const mapDispatchToProps = (dispatch) => {
     actions: {
       getCategories: bindActionCreators(getCategories, dispatch),
       changeCategory: bindActionCreators(changeCategory, dispatch),
+      getProducts: bindActionCreators(getProducts, dispatch),
     },
   };
 };
