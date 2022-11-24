@@ -1,13 +1,12 @@
 import React, { Component } from "react";
+import CartSummary from "../cart/CartSummary";
 
 export default class Navi extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light my-3">
         <div className="container-fluid">
-          <a className="navbar-brand" href="!">
-            Navbar
-          </a>
+          <h4>Northwind - Redux Tutorial</h4>
           <button
             className="navbar-toggler"
             type="button"
@@ -19,7 +18,6 @@ export default class Navi extends Component {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
               <li className="nav-item">
@@ -32,38 +30,7 @@ export default class Navi extends Component {
                   Link
                 </a>
               </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="!"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a className="dropdown-item" href="!">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="!">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="!">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
+              <CartSummary />
             </ul>
           </div>
         </div>

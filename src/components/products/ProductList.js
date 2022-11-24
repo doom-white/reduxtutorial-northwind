@@ -2,18 +2,26 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getProducts } from "../../redux/actions/productAction";
+import { FaCartPlus } from "react-icons/fa";
+import { addToCart } from "../../redux/actions/cartActions";
+import alertify from "alertifyjs";
 
 class ProductList extends Component {
   componentDidMount() {
     this.props.actions.getProducts();
   }
 
+  addToCart = (product) => {
+    this.props.actions.addToCart({ quantity: 1, product });
+    alertify.success(`${product.productName} added to cart!`);
+  };
+
   render() {
     return (
       <div>
         <h3>
           <span className="badge bg-warning text-dark me-2">
-            Products{" "}
+            Products
             {!this.props.currentCategory.categoryName &&
               this.props.products.length}
           </span>
@@ -33,6 +41,7 @@ class ProductList extends Component {
             <th>Quantity</th>
             <th>Unit Price</th>
             <th>Stock</th>
+            <th className="text-center">Actions</th>
           </thead>
           <tbody>
             {this.props.products.map((p) => (
@@ -42,6 +51,12 @@ class ProductList extends Component {
                 <td>{p.quantityPerUnit}</td>
                 <td>{p.unitPrice}</td>
                 <td>{p.unitsInStock}</td>
+                <td className="text-center">
+                  <FaCartPlus
+                    className="add-to-cart"
+                    onClick={() => this.addToCart(p)}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -62,6 +77,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     actions: {
       getProducts: bindActionCreators(getProducts, dispatch),
+      addToCart: bindActionCreators(addToCart, dispatch),
     },
   };
 };

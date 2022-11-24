@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import RootStore from "./redux/configureStore";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import "alertifyjs/build/css/alertify.min.css";
 import "./assets/css/general.css";
 
 const store = RootStore();
