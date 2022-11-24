@@ -6,7 +6,9 @@ export default class Navi extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light my-3">
         <div className="container-fluid">
-          <h4>Northwind - Redux Tutorial</h4>
+          <h4 style={{ color: "rgb(139, 158, 175)" }}>
+            Northwind - Redux Tutorial
+          </h4>
           <button
             className="navbar-toggler"
             type="button"
