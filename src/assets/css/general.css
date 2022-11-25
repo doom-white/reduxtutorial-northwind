@@ -18,12 +18,26 @@
 }
 
 .cart-list {
+  color: black;
   font-size: 2rem;
   cursor: pointer;
   transition: all 0.15s linear;
 }
 
 .cart-list:hover {
-  color: rgb(27, 129, 1);
+  color: #dc3545;
   transform: scale(1.1);
+}
+
+.cart-summary-close-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cart-summary-close {
+  font-size: 1.5rem;
+  margin-right: 7px;
+  cursor: pointer;
+  color: #dc3545;
 }

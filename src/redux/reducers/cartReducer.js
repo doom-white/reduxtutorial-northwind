@@ -21,6 +21,10 @@ const CartReducer = (state = initialState.cart, action) => {
         return [...state, { ...action.payload }];
       }
 
+    case ActionTypes.REMOVE_FROM_CART:
+      const newState = state.filter((c) => c.product.id !== action.payload.id);
+      return newState;
+
     default:
       return state;
   }

@@ -23,7 +23,7 @@ class ProductList extends Component {
           <span className="badge bg-warning text-dark me-2">
             Products
             {!this.props.currentCategory.categoryName &&
-              this.props.products.length}
+              " (" + this.props.products.length + ")"}
           </span>
           {this.props.currentCategory.categoryName && (
             <span className="badge bg-success">
@@ -39,9 +39,9 @@ class ProductList extends Component {
             <th>#id</th>
             <th>Product</th>
             <th>Quantity</th>
-            <th>Unit Price</th>
+            <th>U.Price</th>
             <th>Stock</th>
-            <th className="text-center">Actions</th>
+            <th className="text-center">Cart</th>
           </thead>
           <tbody>
             {this.props.products.map((p) => (
