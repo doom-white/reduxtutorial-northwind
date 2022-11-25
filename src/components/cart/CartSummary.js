@@ -18,11 +18,14 @@ class CartSummary extends Component {
           aria-expanded="false"
         >
           <FaCartArrowDown className="cart-list" />
-          <span className="position-absolute top-0 start-20 translate-middle badge rounded-pill bg-danger">
+          <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
             {this.props.cart.length}
           </span>
         </a>
-        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <ul
+          className="dropdown-menu cart-list-menu"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
           {this.props.cart.map((cartItem) => (
             <div key={cartItem.product.id}>
               <li className="dropdown-item">
